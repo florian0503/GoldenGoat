@@ -1,0 +1,27 @@
+<header class="header" style="background-color: #000;">
+  <div class="container-fluid header__container">
+    <a href="#" class="header__logo">
+      <img src="{{ asset('images/logo_goldengoat.png') }}" alt="GolderGoat">
+    </a>
+
+    <nav class="header__nav">
+      <a href="#" class="header__nav-link header__nav-link--active">Accueil</a>
+      <span class="header__separator" aria-hidden="true"></span>
+        <a href="#" class="header__nav-link">Ballon 1</a>
+      <span class="header__separator" aria-hidden="true"></span>
+        <a href="#" class="header__nav-link">Ballon 2</a>
+      <span class="header__separator" aria-hidden="true"></span>
+        <a href="#" class="header__nav-link">Ballon 3</a>
+    </nav>
+
+    {% if app.user %}
+      <a href="#" class="header__user-icon" title="Mon profil">
+        <img src="{{ asset('images/icon_user.png') }}" alt="Mon profil">
+      </a>
+      {% else %}
+      <a href="#" class="header__user-icon" title="Connexion">
+        <img src="{{ asset('images/icon_user.png') }}" alt="Connexion">
+      </a>
+    {% endif %}
+  </div>
+</header>
