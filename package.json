@@ -11,5 +11,8 @@
     "sass-loader": "^16.0.5",
     "webpack": "^5.99.9",
     "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "flag-icon-css": "^4.1.7"
   }
 }
