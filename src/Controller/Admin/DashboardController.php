@@ -11,7 +11,7 @@ use App\Entity\User;
 
 class DashboardController extends AbstractDashboardController
 {
-    #[Route('/admin', name: 'admin_dashboard')]
+    #[Route('/admin', name: 'admin')]
     public function index(): Response
     {
         return $this->render('admin/dashboard.html.twig', [
@@ -30,6 +30,5 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linktoDashboard('Dashboard', 'fa fa-home');
 
         // tes entités CRUD, par exemple :
-        yield MenuItem::linkToCrud('Utilisateurs', 'fa fa-user', User::class);
     }
 }
