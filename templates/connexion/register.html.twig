@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription – Golden Goat{% endblock %}
+
+{% block body %}
+<div class="register">
+  <div class="register__wrapper">
+    <h1 class="register__title">Créer un compte</h1>
+
+    <form method="post" action="#" class="register__form">
+      <div class="register__group">
+        <label for="registerEmail" class="register__label">Email</label>
+        <input
+          type="email"
+          id="registerEmail"
+          name="email"
+          class="register__input"
+          placeholder="ton@email.com"
+          required
+        >
+      </div>
+
+      <div class="register__group">
+        <label for="registerUsername" class="register__label">Nom d’utilisateur</label>
+        <input
+          type="text"
+          id="registerUsername"
+          name="username"
+          class="register__input"
+          placeholder="GoldenFan42"
+          required
+        >
+      </div>
+
+      <div class="register__group">
+        <label for="registerPassword" class="register__label">Mot de passe</label>
+        <input
+          type="password"
+          id="registerPassword"
+          name="password"
+          class="register__input"
+          placeholder="••••••••"
+          required
+        >
+      </div>
+
+      <div class="register__group">
+        <label for="registerPasswordConfirm" class="register__label">Confirmer le mot de passe</label>
+        <input
+          type="password"
+          id="registerPasswordConfirm"
+          name="password_confirm"
+          class="register__input"
+          placeholder="••••••••"
+          required
+        >
+      </div>
+
+      <button type="submit" class="register__submit">S’inscrire</button>
+
+      <p class="register__help">
+      Déjà un compte ? 
+      <a href="{{ path('app_login') }}" class="register__link">Se connecter</a>
+      </p>
+
+    </form>
+  </div>
+</div>
+{% endblock %}

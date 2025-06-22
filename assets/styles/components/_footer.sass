@@ -3,9 +3,10 @@
   background: linear-gradient(180deg, #1a1a1a 0%, #0d0d0d 100%)
   color: #f2e2a6
   font-family: 'Playfair Display', serif
-  font-size: 0.9rem
+  font-size: 1.25rem
   overflow: hidden
 
+  
   &::before
     content: ''
     position: absolute
@@ -30,6 +31,11 @@
     gap: 2rem
 
   &__icon
+    text-decoration: none
+    &:focus,
+    &:focus-visible
+      outline: none
+      text-decoration: none
     display: flex
     align-items: center
     justify-content: center
@@ -39,7 +45,7 @@
     border: 2px solid #f2e2a6
     border-radius: 50%
     transition: all 0.3s ease
-
+  
     i
       font-size: 1.6rem
       color: #f2e2a6

@@ -19,7 +19,7 @@
         <img src="{{ asset('images/icon_user.png') }}" alt="Mon profil">
       </a>
       {% else %}
-      <a href="#" class="header__user-icon" title="Connexion">
+      <a href="{{ path('app_login') }}" class="header__user-icon" title="Connexion">
         <img src="{{ asset('images/icon_user.png') }}" alt="Connexion">
       </a>
     {% endif %}
