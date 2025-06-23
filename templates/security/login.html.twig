@@ -1,71 +1,43 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Log in!{% endblock %}
-
 {% block body %}
-    <form method="post" action="{{ path('app_login') }}">
-        {% if error %}
-            <div style="background:#fee;border:1px solid red;padding:1em;margin-bottom:1em">
-                <h4>Exception complète :</h4>
-                <pre>{{ dump(error) }}</pre>
+    <div class="login__wrapper">
+        <h1 class="login__heading">Connexion</h1>
 
-                <h4>error.message :</h4>
-                <pre>{{ error.message }}</pre>
+        <form method="post" action="{{ path('app_login') }}">
+            {% if error %}
+                <p class="login__error">Identifiants invalides</p>
+            {% endif %}
 
-                <h4>error.messageKey :</h4>
-                <pre>{{ error.messageKey }}</pre>
+            <label class="login__label" for="inputEmail">E-mail</label>
+            <input  id="inputEmail"
+                    name="_username"
+                    value="{{ last_username }}"
+                    required autofocus
+                    class="login__input" />
 
-                <h4>error.messageData :</h4>
-                <pre>{{ error.messageData|json_encode(constant('JSON_PRETTY_PRINT')) }}</pre>
+            <label class="login__label" for="inputPassword">Mot de passe</label>
+            <input  type="password"
+                    id="inputPassword"
+                    name="_password"
+                    required
+                    autocomplete="current-password"
+                    class="login__input" />
+
+            <div class="login__checkbox">
+                <input type="checkbox" name="_remember_me" id="remember" />
+                <label for="remember">Se souvenir de moi</label>
             </div>
-        {% endif %}
 
-        {% if app.user %}
-            <div class="mb-3">
-                You are logged in as {{ app.user.userIdentifier }},
-                <a href="{{ path('app_logout') }}">Logout</a>
-            </div>
-        {% endif %}
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"/>
 
-        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+            <button class="login__submit">Se connecter</button>
+        </form>
 
-        <label for="inputEmail">Email</label>
-        <input
-                type="email"
-                id="inputEmail"
-                name="_username"
-                value="{{ last_username }}"
-                class="form-control"
-                autocomplete="email"
-                required
-                autofocus
-        >
-
-        <label for="inputPassword">Password</label>
-        <input
-                type="password"
-                id="inputPassword"
-                name="_password"
-                class="form-control"
-                autocomplete="current-password"
-                required
-        >
-
-        {# Champ CSRF : name = csrf_parameter, tokenId = csrf_token_id #}
-        <input
-                type="hidden"
-                name="_csrf_token"
-                value="{{ csrf_token('authenticate') }}"
-        >
-
-        <div class="checkbox mb-3">
-            <label>
-                <input type="checkbox" name="_remember_me"> Remember me
-            </label>
-        </div>
-
-        <button class="btn btn-lg btn-primary" type="submit">
-            Sign in
-        </button>
-    </form>
+        {# ——— nouveau bloc ——— #}
+        <p class="login__registerLink">
+            Pas encore de compte ?
+            <a href="{{ path('app_register') }}">Créer un compte</a>
+        </p>
+    </div>
 {% endblock %}

@@ -7,28 +7,52 @@ security:
         app_user_provider:
             entity:
                 class: App\Entity\User
-                property: email           # ← c’est bien le champ « email » de ton entité
+                property: email
 
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
+        # ------- BACK-OFFICE /admin -------
         admin:
             pattern: ^/admin
             provider: app_user_provider
             lazy: true
 
             form_login:
-                login_path:  app_login     # GET  /admin/login  → affiche le formulaire
-                check_path:  app_login     # POST /admin/login  → traite la soumission
-                default_target_path: admin # vers /admin après connexion
+                login_path:  admin_login
+                check_path:  admin_login
+                default_target_path: app_admin_dashboard_index
 
-                # ★ on fait correspondre exactement les names du <form> ★
                 username_parameter: _username
                 password_parameter: _password
                 csrf_parameter:    _csrf_token
-                enable_csrf:       true
+                enable_csrf: true
+
+            logout:
+                path:   admin_logout
+                target: admin_login
+
+            remember_me:
+                secret:   '%kernel.secret%'
+                lifetime: 604800
+                path:     /
+
+        # ------- SITE PUBLIC -------
+        main:
+            pattern: ^/
+            provider: app_user_provider
+            lazy: true
+
+            form_login:
+                login_path:  app_login
+                check_path:  app_login
+                default_target_path: home
+                enable_csrf: true
+                username_parameter: _username
+                password_parameter: _password
+                csrf_parameter: _csrf_token
 
             logout:
                 path:   app_logout
@@ -36,13 +60,14 @@ security:
 
             remember_me:
                 secret:   '%kernel.secret%'
-                lifetime: 604800  # 7 jours
+                lifetime: 7200
                 path:     /
 
-        main:          # le reste du site n’est pas protégé
-            pattern: ^/
-            security: false
-
     access_control:
+        # back-office
         - { path: ^/admin/login$, roles: PUBLIC_ACCESS }
         - { path: ^/admin,         roles: ROLE_ADMIN }
+
+        # site public
+        - { path: ^/login$,    roles: PUBLIC_ACCESS }
+        - { path: ^/register$, roles: PUBLIC_ACCESS }
