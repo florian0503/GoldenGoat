@@ -1,6 +1,6 @@
 <header class="header" style="background-color: #000;">
   <div class="container-fluid header__container">
-    <a href="#" class="header__logo">
+    <a href="{{ path('home') }}" class="header__logo">
       <img src="{{ asset('images/logo_goldengoat.png') }}" alt="GolderGoat">
     </a>
 
@@ -14,14 +14,23 @@
         <a href="#" class="header__nav-link">Ballon 3</a>
     </nav>
 
+
+    {# templates/partial/_header.html.twig (ou équivalent) #}
     {% if app.user %}
-      <a href="#" class="header__user-icon" title="Mon profil">
-        <img src="{{ asset('images/icon_user.png') }}" alt="Mon profil">
+      {# utilisateur connecté → lien « Mon compte » #}
+      <a href="{{ path('app_account') }}"
+         class="header__user-icon"
+         title="Mon compte">
+        <img src="{{ asset('images/icon_user.png') }}" alt="Mon compte">
       </a>
-      {% else %}
-      <a href="#" class="header__user-icon" title="Connexion">
+    {% else %}
+      {# visiteur → lien de connexion #}
+      <a href="{{ path('app_login') }}"
+         class="header__user-icon"
+         title="Connexion">
         <img src="{{ asset('images/icon_user.png') }}" alt="Connexion">
       </a>
     {% endif %}
+
   </div>
 </header>

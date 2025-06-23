@@ -37,10 +37,7 @@ class RegistrationController extends AbstractController
             $em->persist($user);
             $em->flush();
 
-            // connexion immédiate (firewall public « main »)
-            return $security->login($user, 'main');
-            // ou, si tu préfères, simplement :
-            // return $this->redirectToRoute('app_login');
+            return $this->redirectToRoute('app_login');
         }
 
         return $this->render('registration/register.html.twig', [

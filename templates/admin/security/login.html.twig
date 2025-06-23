@@ -1,0 +1,39 @@
+{# templates/security/login_admin.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="login">
+        <div class="login__wrapper">
+            <h1 class="login__heading">Connexion administrateur</h1>
+
+            <form method="post" action="{{ path('admin_login') }}">
+                {% if error %}
+                    <p style="color:#e44">Identifiants invalides</p>
+                {% endif %}
+
+                <label class="login__label" for="inputEmail">E-mail</label>
+                <input  id="inputEmail"
+                        name="_username"
+                        value="{{ last_username }}"
+                        required autofocus
+                        class="login__input" />
+
+                <label class="login__label" for="inputPassword">Mot de passe</label>
+                <input  type="password"
+                        id="inputPassword"
+                        name="_password"
+                        required
+                        autocomplete="current-password"
+                        class="login__input" />
+
+                <div class="login__checkbox">
+                    <input type="checkbox" name="_remember_me" id="remember">
+                    <label for="remember">Se souvenir de moi</label>
+                </div>
+
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"/>
+                <button class="login__submit">Se connecter</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

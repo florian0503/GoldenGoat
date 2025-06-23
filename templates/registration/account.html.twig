@@ -1,0 +1,16 @@
+{# templates/account/index.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <section class="account">
+        <h1 class="account__heading">Mon compte</h1>
+
+        <ul class="account__details">
+            <li><strong>Prénom&nbsp;:</strong> {{ user.prenom }}</li>
+            <li><strong>Nom&nbsp;:</strong> {{ user.nom }}</li>
+            <li><strong>E-mail&nbsp;:</strong> {{ user.email }}</li>
+        </ul>
+
+        <a href="{{ path('app_logout') }}" class="account__logout">Se déconnecter</a>
+    </section>
+{% endblock %}
