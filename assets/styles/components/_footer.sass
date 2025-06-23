@@ -30,26 +30,34 @@
     gap: 2rem
 
   &__icon
-    display: flex
+    display: inline-flex
     align-items: center
     justify-content: center
-    width: 3.5rem
-    height: 3.5rem
-    background: rgba(242,226,166,0.1)
-    border: 2px solid $gold
+    width: 48px
+    height: 48px
     border-radius: 50%
-    transition: all 0.3s ease
-
-    i
-      font-size: 1.6rem
-      color: $gold
+    border: 1px solid #f2e2a6
+    text-decoration: none
+    transition: background 0.3s ease, transform 0.3s ease
+    background-color: transparent
 
     &:hover
-      background: $gold
+      background: rgba(242, 226, 166, 0.1)
+      transform: scale(1.05)
       border-color: #fff
 
       i
         color: #000
+
+    &:focus,
+    &:focus-visible
+      outline: none
+      text-decoration: none
+
+    i
+      font-size: 1.6rem
+      color: #f2e2a6
+      transition: color 0.3s ease
 
   &__info
     display: flex
@@ -75,7 +83,7 @@
       transform: translateX(-50%)
       width: 0
       height: 2px
-      background: $gold
+      background: #f2e2a6
       transition: width 0.3s ease
 
     &:hover::after
