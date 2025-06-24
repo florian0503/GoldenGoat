@@ -15,20 +15,13 @@
     </nav>
 
 
-    {# templates/partial/_header.html.twig (ou équivalent) #}
     {% if app.user %}
-      {# utilisateur connecté → lien « Mon compte » #}
-      <a href="{{ path('app_account') }}"
-         class="header__user-icon"
-         title="Mon compte">
-        <img src="{{ asset('images/icon_user.png') }}" alt="Mon compte">
+      <a href="{{ path('app_account') }}" class="header__user-icon" title="Mon profil">
+        <i class="bi bi-person-check-fill fs-1" aria-hidden="true"></i>
       </a>
     {% else %}
-      {# visiteur → lien de connexion #}
-      <a href="{{ path('app_login') }}"
-         class="header__user-icon"
-         title="Connexion">
-        <img src="{{ asset('images/icon_user.png') }}" alt="Connexion">
+      <a href="{{ path('app_login') }}" class="header__user-icon" title="Connexion">
+        <i class="bi bi-person-circle fs-1" aria-hidden="true"></i>
       </a>
     {% endif %}
 

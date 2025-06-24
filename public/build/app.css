@@ -39,9 +39,12 @@
 .header__nav-link--active {
   color: #f2e2a6;
 }
-.header__user-icon img {
-  height: 50px;
-  margin-right: 50px;
+.header__user-icon {
+  color: white;
+}
+.header__user-icon i {
+  font-size: 3rem;
+  line-height: 1;
 }
 
 .footer {
