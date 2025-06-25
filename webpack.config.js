@@ -6,6 +6,11 @@ Encore
   .setPublicPath('/build')
   .addEntry('app', './assets/app.js')
 
+  .copyFiles({
+    from: './assets/images',
+    to: 'images/[path][name].[ext]'
+  })
+
   // <-- Ajoutez cette ligne :
   .enableSingleRuntimeChunk()
 
@@ -15,6 +20,10 @@ Encore
   .cleanupOutputBeforeBuild()
   .enableSourceMaps(!Encore.isProduction())
   .enableVersioning(Encore.isProduction())
+
+  
+  
 ;
 
 module.exports = Encore.getWebpackConfig();
+

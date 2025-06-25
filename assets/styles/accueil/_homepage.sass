@@ -1,0 +1,82 @@
+.homepage
+  background: #000
+  color: #f2e2a6
+  font-family: 'Playfair Display', serif
+  text-align: center
+
+  &__hero
+    padding: 6rem 1rem 3rem
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    background: linear-gradient(to bottom, #000000, #1a1a1a)
+    min-height: 90vh
+
+  &__logo
+    max-width: 200px
+    margin-bottom: 2rem
+    filter: drop-shadow(0 0 12px gold)
+    animation: float 4s ease-in-out infinite
+
+  &__tagline
+    font-size: 2rem
+    font-weight: bold
+    margin-bottom: 2rem
+    max-width: 700px
+
+  &__cta
+    background: #f2e2a6
+    color: #000
+    font-weight: bold
+    padding: 1rem 2rem
+    border-radius: 50px
+    text-decoration: none
+    font-size: 1.2rem
+    transition: background 0.3s ease
+
+    &:hover
+      background: #fff200
+      color: #000
+
+  &__concept
+    padding: 4rem 2rem
+    max-width: 800px
+    margin: 0 auto
+    font-size: 1.1rem
+    line-height: 1.6
+
+    h2
+      font-family: 'Anton', sans-serif
+      font-size: 2.5rem
+      margin-bottom: 1rem
+
+  &__features
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
+    gap: 2rem
+    padding: 3rem 2rem
+
+    .feature
+      flex: 1 1 250px
+      max-width: 300px
+      background: #1a1a1a
+      padding: 2rem
+      border-radius: 1rem
+      box-shadow: 0 0 20px rgba(255,215,0,0.1)
+
+      h3
+        font-family: 'Anton', sans-serif
+        margin-bottom: 1rem
+        color: #fff
+
+      p
+        font-size: 1rem
+        color: #f2e2a6
+
+@keyframes float
+  0%, 100%
+    transform: translateY(0)
+  50%
+    transform: translateY(-10px)

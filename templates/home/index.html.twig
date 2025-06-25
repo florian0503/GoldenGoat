@@ -1,13 +1,37 @@
 {# templates/home/index.html.twig #}
 {% extends 'base.html.twig' %}
 
-{% block title %}Accueil{% endblock %}
+{% block title %}Golden Goat - Fan's Choice Award{% endblock %}
 
 {% block body %}
-
-  <div class="container">
-    <h1>Bienvenue sur GoldenGoat !</h1>
-    <p>Ceci est votre première page Symfony + Bootstrap.</p>
+<section class="homepage">
+  <div class="homepage__hero">
+    <img src="{{ asset('images/logo.goldengoat.png') }}" alt="Golden Goat Logo" class="homepage__logo">
+    <h1 class="homepage__tagline">Le seul Ballon d'Or 100% décidé par les fans</h1>
+    <a href="#" class="homepage__cta">Vote maintenant</a>
   </div>
-{% endblock %}
 
+  <div class="homepage__concept">
+    <h2>Le Concept</h2>
+    <p>
+      Marre des votes de journalistes ? Ici, c’est le public qui élit le vrai GOAT 🐐.
+      Chaque mois, chaque match, chaque but compte. Vote, partage, influence.
+    </p>
+  </div>
+
+  <div class="homepage__features">
+    <div class="feature">
+      <h3>👑 VOTE</h3>
+      <p>Vote pour ton joueur préféré, chaque semaine, chaque match.</p>
+    </div>
+    <div class="feature">
+      <h3>📊 IMPACTE</h3>
+      <p>Fais monter ton joueur dans les classements et influence le trophée final.</p>
+    </div>
+    <div class="feature">
+      <h3>🎉 CÉLÈBRE</h3>
+      <p>Participe à la victoire du vrai GOAT, élu par les fans, pas par la presse.</p>
+    </div>
+  </div>
+</section>
+{% endblock %}
